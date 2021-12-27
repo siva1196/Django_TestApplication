@@ -9,9 +9,21 @@
     <link rel="stylesheet" type="text/css" href="{%static 'Home.css'%}">
 </head>
 <body>
-    <form action = "logout">
-        <h1>Welcome to the Page </h1>
-        <button type="submit">Logout</button>   
+        {%if user.is_authenticated %}
+            <form action="logout">
+                <h1>Welcome to {{user.username}} </h1>
+                <button type="submit">Logout</button>  
+            </form>
+        {%else%} 
+            <h1>Welcome to the Page </h1>
+
+            <form action="registration"></form>
+                <a href = 'registration?'>Click here</a> to Register
+            </form> <br><br>
+            If you have an account,<a href="login?">Click here</a> to login.
+
+        {%endif%}
+
     </form> 
 </body>
 </html>

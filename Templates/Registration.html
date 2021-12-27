@@ -5,20 +5,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registraion</title>
+    <title>Registration</title>
     <link rel = "stylesheet" type = "text/css" href="{%static 'Registration.css'%}">
 </head>
 <body>
 
     <h2>Registration Screen </h2>
 
-    <form action="register">
+    <form action="register" method="POST">
+
+        {% csrf_token %}
         Name: <input type="text" name="name" placeholder="Enter name"><br><br>
         DOB: <input type="date" name="dob"  placeholder="DOB"><br><br>
         Gender: 
-        Male <input type="radio" name="gender" value="male">
-        Female <input type="radio" name="gender" value="female">
-        Others <input type="radio" name="gender" value="others"><br><br>
+        <input type="radio" name="gender" value="male"> Male
+        <input type="radio" name="gender" value="female"> Female 
+        <input type="radio" name="gender" value="others">Others <br><br>
         City: <input type="text" name="city" placeholder="Enter City"><br><br>
         Mobile: <input type="number" name="mobile" placeholder="Mobile number"><br><br>
         Email:<input type="email" name="email" placeholder="Email"><br><br>
@@ -26,8 +28,13 @@
         Create Password: <input type="password" name="newpass" placeholder="Enter Password"><br><br>
         Confirm Password: <input type="password" name="Confirmpass" placeholder="Confirm Password"><br><br>
         <button type="submit">Register</button>
-        If you have an account,<a href="login?">Click here</a> to login.
     </form>
+
+    <div>
+        {%for message in messages%}
+            <h2>{{message}}</h2>
+        {%endfor%}
+    </div>
     
 </body>
 </html>

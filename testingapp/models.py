@@ -6,7 +6,7 @@ from django.db.models.base import Model
 class Users(models.Model):
     Name = models.CharField(max_length=100)
     DOB = models.DateField()
-    Gender = models.TextField() 
+    Gender = models.TextField()
     City = models.TextField()
     Mobile = models.IntegerField()
     Email = models.TextField()
