@@ -35,18 +35,6 @@ def registration(request):
         else:
             messages.info(request,'Password not Matched')
             return redirect('register')
-        
-       # User1 = {
-        #    'Name':Name,
-         #   'DOB':Dob,
-         #   'Gender':Gender,
-          #  'City':City,
-           # 'Mobile':Mobile, 
-            #'Email':Email,
-            #'UserName':Username,
-            #'Newpass':Create_Password,
-            #'Confirmpass':Confirm_Password
-            #}
     else:
         return render(request, 'Registration.html')
 
